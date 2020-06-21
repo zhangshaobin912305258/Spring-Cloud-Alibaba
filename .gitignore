@@ -1,0 +1,8 @@
+*/target/*
+*.iml
+*/.mvn/*
+*/mvnw/*
+*AppTest.class
+*AppTest.java
+*maven-wrapper.jar
+*maven-wrapper.properties
