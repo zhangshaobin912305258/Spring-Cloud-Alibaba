@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
-    @Reference
+    @Reference(mock = "com.zhang.springcloud.dubbo.sample.consumer.MockHelloServiceImpl", cluster = "failfast")
     private HelloService helloService;
 
     @GetMapping("/say")

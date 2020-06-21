@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Value;
  * 创建时间：2020/6/22 12:51 上午
  * 创建人：zhang
  */
-@Service
+
+/**
+ *
+ */
+@Service(cluster = "failfast")
 public class HelloServiceImpl implements HelloService {
 
     @Value("${dubbo.application.name}")
@@ -17,6 +21,10 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String sayHello(String name) {
+        boolean flag = true;
+        if(flag) {
+            throw new RuntimeException("服务出错");
+        }
         return String.format("[%s]: hello, %s", serviceName, name);
     }
 }
