@@ -21,9 +21,10 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String sayHello(String name) {
-        boolean flag = true;
-        if(flag) {
-            throw new RuntimeException("服务出错");
+        try {
+            Thread.sleep(1000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return String.format("[%s]: hello, %s", serviceName, name);
     }
